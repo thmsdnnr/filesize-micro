@@ -1,0 +1,12 @@
+var mongo=require('mongodb').MongoClient;
+var dbAddress='learnyoumongo';
+var url='mongodb://localhost:27017/'+dbAddress
+mongo.connect(url, function(err, db){
+if (!err) {
+db.collection('prices').aggregate([{$match:{"size":process.argv[2]}},{$group:{_id:'average',average:{$avg:'$price'}}}]).toArray(function(err,data){
+if(!err){
+var fixedAvg=data[0].average.toFixed(2);
+console.log(fixedAvg);}});
+db.close();
+}
+});

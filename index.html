@@ -1,0 +1,13 @@
+<html>
+<head>
+<title>file metadata microservice</title>
+</head>
+<body>
+<p>Sup brah. Upload a file to receive a JSON string of its file size in bytes. It'll look like this {"size":SIZE IN BYTES}. Sweet, huh?</p>
+<form action="/submit" method="post" enctype="multipart/form-data">
+<input type="file" name="upfile">
+<label for="upload">Select a file to upload</label>
+<input type="submit" value="submit">
+</form>
+</body>
+</html>
